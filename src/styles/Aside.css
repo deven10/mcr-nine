@@ -1,0 +1,30 @@
+.aside-nav{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100vh;
+    padding: 50px;
+}
+
+.navlink {
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #111;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    margin: 8px 0px;
+    width: 100%;
+}
+
+.nav-img{
+    height: 25px;
+    width: 25px;
+    aspect-ratio: 1/1;
+    padding-top: 5px;
+    object-fit: cover;
+}
