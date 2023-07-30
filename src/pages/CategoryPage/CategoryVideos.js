@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ContextData } from "../../context/DataContext";
 
+import { ClockSVG } from "../../utils/ClockSVG";
+import { FilledClockSVG } from "../../utils/FilledClockSVG";
+
 export const CategoryVideos = () => {
   const { category } = useParams();
   const { categories, videos } = useContext(ContextData);
@@ -12,17 +15,20 @@ export const CategoryVideos = () => {
       <h2>{category}</h2>
       <div className="card-wrapper">
         {categoryVideos?.map((video) => (
-          <Link
-            // to={`/category/${meeting.category}`}
-            key={video._id}
-            className="card"
-          >
-            <img
-              className="category-img"
-              src={video.thumbnail}
-              alt={video.title}
-            />
-            <div className="video-details-wrapper">
+          <div key={video._id} className="card">
+            <div className="card-img-wrapper">
+              <img
+                className="category-img"
+                src={video.thumbnail}
+                alt={video.title}
+              />
+              {video.watchLater ? (
+                <FilledClockSVG id={video._id} />
+              ) : (
+                <ClockSVG id={video._id} />
+              )}
+            </div>
+            <Link to={`/video/${video._id}`} className="video-details-wrapper">
               <img
                 className="dummy-img"
                 src={`https://fastly.picsum.photos/id/379/40/40.jpg?hmac=lwSn1UyxHXRH5kA1301wSCaTS5P8tU7Ojq5cLsnAKis`}
@@ -35,8 +41,8 @@ export const CategoryVideos = () => {
                   {video.views} | {video.creator}
                 </p>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         ))}
       </div>
     </div>

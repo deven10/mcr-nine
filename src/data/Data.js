@@ -57,6 +57,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Origami",
     creator: "PaperCraftPro",
+    watchLater: true,
+    notes: ["This is Sick", "Best of All Time 😊"],
   },
   {
     _id: 20,
@@ -67,6 +69,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Kirigami",
     creator: "Crafty Delights",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 21,
@@ -77,6 +81,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Clay Modeling",
     creator: "CraftyCritters",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 22,
@@ -87,6 +93,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Stop Motion",
     creator: "ToyStoryMakers",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 23,
@@ -97,6 +105,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Pottery",
     creator: "CeramicArtistry",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 24,
@@ -107,6 +117,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Quilling",
     creator: "ArtfulQuills",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 25,
@@ -117,6 +129,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Origami",
     creator: "HomeCraftHacks",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 26,
@@ -127,6 +141,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Kirigami",
     creator: "GiftsFromHeart",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 27,
@@ -137,6 +153,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Clay Modeling",
     creator: "FantasyArtWorks",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 28,
@@ -147,6 +165,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Stop Motion",
     creator: "AnimateMasters",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 29,
@@ -157,6 +177,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Pottery",
     creator: "ArtisticPots",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 30,
@@ -167,6 +189,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Quilling",
     creator: "CraftyGreetings",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 31,
@@ -177,6 +201,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Origami",
     creator: "OrigamiWonderland",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 32,
@@ -187,6 +213,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Kirigami",
     creator: "CreativeFolds",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 33,
@@ -197,6 +225,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Clay Modeling",
     creator: "PortraitsInClay",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 34,
@@ -207,6 +237,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Stop Motion",
     creator: "AnimateMagic",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 35,
@@ -217,6 +249,8 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Pottery",
     creator: "ArtisticExpressions",
+    watchLater: false,
+    notes: [],
   },
   {
     _id: 36,
@@ -227,5 +261,7 @@ export const videos = [
     src: "https://www.youtube.com/embed/GBIIQ0kP15E",
     category: "Quilling",
     creator: "PaperArtDimensions",
+    watchLater: false,
+    notes: [],
   },
 ];
