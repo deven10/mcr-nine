@@ -22,32 +22,27 @@ const style = {
 };
 
 export const AddVideoToPlaylist = ({ videoID }) => {
-  const { addPlaylist, playlist } = useContext(ContextData);
+  const { addPlaylist, playlist, handlePlaylistVideo } =
+    useContext(ContextData);
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  //   const [playlistDetails, setPlaylistDetails] = useState({
-  //     id: +playlist.length + 1,
-  //     name: "",
-  //     description: "",
-  //     videosList: [...playlistDetails.videosList, +videoID],
-  //   });
+  const [playlistName, setPlaylistName] = useState("");
+  const [playlistDescription, setPlaylistDescription] = useState("");
 
-  //   const handlePlaylist = (e) => {
-  //     const { name, value } = e.target;
-  //     setPlaylistDetails((prev) => ({
-  //       ...prev,
-  //       [name]: value,
-  //       id: +playlist.length + 1,
-  //       videosList: [...prev.videosList, +videoID],
-  //     }));
-  //   };
+  const handleNewPlaylist = () => {
+    if (!playlistName || !playlistDescription) {
+      alert("Please fill all details");
+    } else {
+      addPlaylist(playlistName, playlistDescription, videoID);
+      handleClose();
+    }
+  };
 
   return (
     <div>
-      {/* <img src={editPlaylist} onClick={handleOpen} alt="edit-to-playlist" /> */}
       <img src={addPlaylistSVG} onClick={handleOpen} alt="add-to-playlist" />
       <Modal
         aria-labelledby="transition-modal-title"
@@ -64,6 +59,33 @@ export const AddVideoToPlaylist = ({ videoID }) => {
       >
         <Fade in={open}>
           <Box sx={style}>
+            {playlist?.length > 0 ? (
+              <>
+                <h3 style={{ textAlign: "center" }}>
+                  Add to an Existing Playlist
+                </h3>
+                <div className="existing-playlist-wrapper">
+                  {playlist.map((singlePlaylist) => (
+                    <p
+                      className={`single-playlist ${
+                        singlePlaylist?.playListVideos.includes(videoID)
+                          ? "border-active"
+                          : ""
+                      }`}
+                      onClick={() =>
+                        handlePlaylistVideo(singlePlaylist?.playlistID, videoID)
+                      }
+                      key={singlePlaylist?.playlistID}
+                    >
+                      {singlePlaylist?.playlistName}
+                    </p>
+                  ))}
+                </div>
+                <hr />
+              </>
+            ) : (
+              ""
+            )}
             <Typography id="transition-modal-title" variant="h6" component="h2">
               Create New Playlist
             </Typography>
@@ -73,25 +95,22 @@ export const AddVideoToPlaylist = ({ videoID }) => {
                 type="text"
                 name="name"
                 placeholder="Enter Playlist Name..."
-                // value={playlistDetails.name}
-                // onChange={handlePlaylist}
+                value={playlistName}
+                onChange={(e) => setPlaylistName(e.target.value)}
               />
               <input
                 className="note-description-input-field"
                 type="text"
                 name="description"
                 placeholder="Enter Playlist Description..."
-                // value={playlistDetails.description}
-                // onChange={handlePlaylist}
+                value={playlistDescription}
+                onChange={(e) => setPlaylistDescription(e.target.value)}
               />
               <div className="edit-note-call-to-action-buttons">
                 <button onClick={handleClose} className="discard-btn">
                   Discard
                 </button>
-                <button
-                  //   onClick={() => console.log(playlistDetails)}
-                  className="update-note-btn"
-                >
+                <button onClick={handleNewPlaylist} className="update-note-btn">
                   Create New Playlist
                 </button>
               </div>

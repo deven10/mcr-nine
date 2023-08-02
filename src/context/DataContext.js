@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import {
   categories as CateogiesData,
   videos as AllVideosData,
@@ -68,7 +68,36 @@ export const DataContext = ({ children }) => {
   };
 
   // function => Create New Playlist
-  const addPlaylist = () => {};
+  const addPlaylist = (playlistName, playlistDescription, videoID) => {
+    const newPlaylist = {
+      playlistID: playlist.length + 1,
+      playlistName,
+      playlistDescription,
+    };
+    setPlaylist((prev) => [
+      ...prev,
+      { ...newPlaylist, playListVideos: [videoID] },
+    ]);
+  };
+
+  // function => Delete a Playlist
+
+  // function => Adding a video to an Existing Playlist & Removing a video from an Existing Playlist
+  const handlePlaylistVideo = (playlistId, videoID) => {
+    let temp = playlist.find(({ playlistID }) => playlistID === playlistId);
+    if (temp.playListVideos.includes(+videoID)) {
+      temp.playListVideos = temp.playListVideos.filter(
+        (item) => +item !== +videoID
+      );
+    } else {
+      temp.playListVideos.push(videoID);
+    }
+    setPlaylist((prev) =>
+      prev.map((playlist) =>
+        playlist.playlistID === playlistId ? { ...temp } : playlist
+      )
+    );
+  };
 
   return (
     <ContextData.Provider
@@ -82,6 +111,7 @@ export const DataContext = ({ children }) => {
         addNote,
         addPlaylist,
         playlist,
+        handlePlaylistVideo,
       }}
     >
       {children}
