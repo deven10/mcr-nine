@@ -81,6 +81,27 @@ export const DataContext = ({ children }) => {
   };
 
   // function => Delete a Playlist
+  const deletePlaylist = (playlistId) => {
+    setPlaylist((prev) =>
+      prev.filter(({ playlistID }) => +playlistID !== +playlistId)
+    );
+  };
+
+  // function => removing a video from an existing playlist
+  const removeVideoFromPlaylist = (playlistId, videoID) => {
+    const newPlaylist = playlist.find(
+      ({ playlistID }) => +playlistID === +playlistId
+    );
+    const updatedPlaylist = newPlaylist.playListVideos.filter(
+      (video) => +video !== +videoID
+    );
+    const newPlaylists = playlist.map((singlePlaylist) =>
+      +singlePlaylist?.playlistID === +playlistId
+        ? { ...singlePlaylist, playListVideos: [...updatedPlaylist] }
+        : singlePlaylist
+    );
+    setPlaylist(newPlaylists);
+  };
 
   // function => Adding a video to an Existing Playlist & Removing a video from an Existing Playlist
   const handlePlaylistVideo = (playlistId, videoID) => {
@@ -112,6 +133,8 @@ export const DataContext = ({ children }) => {
         addPlaylist,
         playlist,
         handlePlaylistVideo,
+        removeVideoFromPlaylist,
+        deletePlaylist,
       }}
     >
       {children}

@@ -6,15 +6,13 @@ import { ClockSVG } from "../../utils/ClockSVG";
 import { FilledClockSVG } from "../../utils/FilledClockSVG";
 
 export const SinglePlaylist = () => {
-  const { addPlaylist, playlist, videos } = useContext(ContextData);
+  const { addPlaylist, playlist, videos, removeVideoFromPlaylist } =
+    useContext(ContextData);
   const [playListVideos, setPlaylistVideos] = useState([]);
   const { playlistId } = useParams();
   const singlePlaylist = playlist.find(
     ({ playlistID }) => playlistID === +playlistId
   );
-
-  console.log(videos);
-  console.log("singlePlaylist: ", singlePlaylist);
 
   useEffect(() => {
     const temp = videos.filter(({ _id }) =>
@@ -31,6 +29,12 @@ export const SinglePlaylist = () => {
         {playListVideos?.map((video) => (
           <div key={video._id} className="card">
             <div className="card-img-wrapper">
+              <span
+                className="delete-playlist"
+                onClick={() => removeVideoFromPlaylist(playlistId, video._id)}
+              >
+                x
+              </span>
               <img
                 className="category-img"
                 src={video.thumbnail}

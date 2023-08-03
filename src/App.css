@@ -326,3 +326,14 @@ img.video-card-thumbnail {
 .single-playlist.border-active {
   border: 2px solid salmon;
 }
+
+span.delete-playlist {
+  font-size: 28px;
+  float: right;
+  padding: 0px 5px 5px 0px;
+  font-weight: 600;
+  cursor: pointer;
+  position: absolute;
+  top: -40px;
+  right: 0px;
+}
